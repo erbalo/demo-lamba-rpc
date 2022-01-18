@@ -1,0 +1,2 @@
+python-lambda-local
+pika==1.1.0

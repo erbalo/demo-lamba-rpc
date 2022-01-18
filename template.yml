@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Function and API for demo
+
+Resources:
+  MultiplyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: rest_to_rmq.handler
+      Runtime: python3.9
+      Events:
+        GetUsers:
+          Type: Api
+          Properties:
+            Path: /api/v1/users
+            Method: GET
+        CreateUser:
+          Type: Api
+          Properties:
+            Path: /api/v1/users
+            Method: POST
